@@ -1,11 +1,12 @@
 'use client';
 
-import { EditorView } from '@codemirror/view';
-import { EditorState, Transaction } from '@codemirror/state';
 import { python } from '@codemirror/lang-python';
+import { EditorState, Transaction } from '@codemirror/state';
 import { oneDark } from '@codemirror/theme-one-dark';
+import { EditorView } from '@codemirror/view';
 import { basicSetup } from 'codemirror';
 import React, { memo, useEffect, useRef } from 'react';
+
 import { Suggestion } from '@/lib/db/schema';
 
 type EditorProps = {
@@ -49,7 +50,7 @@ function PureCodeEditor({ content, saveContent, status }: EditorProps) {
       const updateListener = EditorView.updateListener.of((update) => {
         if (update.docChanged) {
           const transaction = update.transactions.find(
-            (tr) => !tr.annotation(Transaction.remote),
+            (tr) => !tr.annotation(Transaction.remote)
           );
 
           if (transaction) {

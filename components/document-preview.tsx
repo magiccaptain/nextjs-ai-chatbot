@@ -1,5 +1,6 @@
 'use client';
 
+import equal from 'fast-deep-equal';
 import {
   memo,
   MouseEvent,
@@ -8,17 +9,17 @@ import {
   useMemo,
   useRef,
 } from 'react';
-import { UIBlock } from './block';
-import { FileIcon, FullscreenIcon, LoaderIcon } from './icons';
-import { cn, fetcher } from '@/lib/utils';
-import { Document } from '@/lib/db/schema';
-import { InlineDocumentSkeleton } from './document-skeleton';
 import useSWR from 'swr';
-import { Editor } from './editor';
-import { DocumentToolCall, DocumentToolResult } from './document';
+
+import { UIBlock } from './block';
 import { CodeEditor } from './code-editor';
+import { DocumentToolCall, DocumentToolResult } from './document';
+import { InlineDocumentSkeleton } from './document-skeleton';
+import { Editor } from './editor';
+import { FileIcon, FullscreenIcon, LoaderIcon } from './icons';
 import { useBlock } from '@/hooks/use-block';
-import equal from 'fast-deep-equal';
+import { Document } from '@/lib/db/schema';
+import { cn, fetcher } from '@/lib/utils';
 
 interface DocumentPreviewProps {
   isReadonly: boolean;
@@ -154,10 +155,10 @@ const PureHitboxLayer = ({
                 width: boundingBox.width,
                 height: boundingBox.height,
               },
-            },
+            }
       );
     },
-    [setBlock, result],
+    [setBlock, result]
   );
 
   return (
@@ -221,7 +222,7 @@ const DocumentContent = ({ document }: { document: Document }) => {
     {
       'p-4 sm:px-14 sm:py-16': document.kind === 'text',
       'p-0': document.kind === 'code',
-    },
+    }
   );
 
   const commonProps = {

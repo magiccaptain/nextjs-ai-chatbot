@@ -1,8 +1,9 @@
 'use client';
 
-import { UIBlock } from '@/components/block';
 import { useCallback, useMemo } from 'react';
 import useSWR from 'swr';
+
+import { UIBlock } from '@/components/block';
 
 export const initialBlockData: UIBlock = {
   documentId: 'init',
@@ -41,7 +42,7 @@ export function useBlock() {
     null,
     {
       fallbackData: initialBlockData,
-    },
+    }
   );
 
   const block = useMemo(() => {
@@ -61,7 +62,7 @@ export function useBlock() {
         return updaterFn;
       });
     },
-    [setLocalBlock],
+    [setLocalBlock]
   );
 
   return useMemo(() => ({ block, setBlock }), [block, setBlock]);

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+
 import { CrossIcon } from './icons';
 import { Button } from './ui/button';
 import { initialBlockData, useBlock } from '@/hooks/use-block';
@@ -17,7 +18,7 @@ function PureBlockCloseButton() {
                 ...currentBlock,
                 isVisible: false,
               }
-            : { ...initialBlockData, status: 'idle' },
+            : { ...initialBlockData, status: 'idle' }
         );
       }}
     >

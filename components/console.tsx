@@ -1,5 +1,3 @@
-import { TerminalWindowIcon, LoaderIcon, CrossSmallIcon } from './icons';
-import { Button } from './ui/button';
 import {
   Dispatch,
   SetStateAction,
@@ -8,7 +6,10 @@ import {
   useRef,
   useState,
 } from 'react';
+
 import { ConsoleOutput } from './block';
+import { CrossSmallIcon, LoaderIcon, TerminalWindowIcon } from './icons';
+import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 
 interface ConsoleProps {
@@ -41,7 +42,7 @@ export function Console({ consoleOutputs, setConsoleOutputs }: ConsoleProps) {
         }
       }
     },
-    [isResizing],
+    [isResizing]
   );
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export function Console({ consoleOutputs, setConsoleOutputs }: ConsoleProps) {
           'fixed flex flex-col bottom-0 dark:bg-zinc-900 bg-zinc-50 w-full border-t z-40 overflow-y-scroll dark:border-zinc-700 border-zinc-200',
           {
             'select-none': isResizing,
-          },
+          }
         )}
         style={{ height }}
       >

@@ -4,12 +4,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useWindowSize } from 'usehooks-ts';
 
-import type { UISuggestion } from '@/lib/editor/suggestions';
-
+import { BlockKind } from './block';
 import { CrossIcon, MessageIcon } from './icons';
 import { Button } from './ui/button';
+import type { UISuggestion } from '@/lib/editor/suggestions';
 import { cn } from '@/lib/utils';
-import { BlockKind } from './block';
 
 export const Suggestion = ({
   suggestion,

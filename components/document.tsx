@@ -1,13 +1,13 @@
 import { memo } from 'react';
+import { toast } from 'sonner';
 
 import type { BlockKind } from './block';
 import { FileIcon, LoaderIcon, MessageIcon, PencilEditIcon } from './icons';
-import { toast } from 'sonner';
 import { useBlock } from '@/hooks/use-block';
 
 const getActionText = (
   type: 'create' | 'update' | 'request-suggestions',
-  tense: 'present' | 'past',
+  tense: 'present' | 'past'
 ) => {
   switch (type) {
     case 'create':
@@ -43,7 +43,7 @@ function PureDocumentToolResult({
       onClick={(event) => {
         if (isReadonly) {
           toast.error(
-            'Viewing files in shared chats is currently not supported.',
+            'Viewing files in shared chats is currently not supported.'
           );
           return;
         }
@@ -106,7 +106,7 @@ function PureDocumentToolCall({
       onClick={(event) => {
         if (isReadonly) {
           toast.error(
-            'Viewing files in shared chats is currently not supported.',
+            'Viewing files in shared chats is currently not supported.'
           );
           return;
         }

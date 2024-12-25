@@ -1,9 +1,9 @@
 import OrderedMap from 'orderedmap';
 import {
-  Schema,
-  type Node as ProsemirrorNode,
-  type MarkSpec,
   DOMParser,
+  Schema,
+  type MarkSpec,
+  type Node as ProsemirrorNode,
 } from 'prosemirror-model';
 import { schema } from 'prosemirror-schema-basic';
 import { addListNodes } from 'prosemirror-schema-list';
@@ -60,10 +60,10 @@ export const DiffView = ({ oldContent, newContent }: DiffEditorProps) => {
       const parser = DOMParser.fromSchema(diffSchema);
 
       const oldHtmlContent = renderToString(
-        <ReactMarkdown>{oldContent}</ReactMarkdown>,
+        <ReactMarkdown>{oldContent}</ReactMarkdown>
       );
       const newHtmlContent = renderToString(
-        <ReactMarkdown>{newContent}</ReactMarkdown>,
+        <ReactMarkdown>{newContent}</ReactMarkdown>
       );
 
       const oldContainer = document.createElement('div');

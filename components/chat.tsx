@@ -1,19 +1,19 @@
 'use client';
 
 import type { Attachment, Message } from 'ai';
-import { useChat } from 'ai/react';
 import { useState } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 
-import { ChatHeader } from '@/components/chat-header';
-import type { Vote } from '@/lib/db/schema';
-import { fetcher } from '@/lib/utils';
+import { useChat } from 'ai/react';
 
 import { Block } from './block';
-import { MultimodalInput } from './multimodal-input';
 import { Messages } from './messages';
+import { MultimodalInput } from './multimodal-input';
 import { VisibilityType } from './visibility-selector';
+import { ChatHeader } from '@/components/chat-header';
 import { useBlockSelector } from '@/hooks/use-block';
+import type { Vote } from '@/lib/db/schema';
+import { fetcher } from '@/lib/utils';
 
 export function Chat({
   id,
@@ -52,7 +52,7 @@ export function Chat({
 
   const { data: votes } = useSWR<Array<Vote>>(
     `/api/vote?chatId=${id}`,
-    fetcher,
+    fetcher
   );
 
   const [attachments, setAttachments] = useState<Array<Attachment>>([]);

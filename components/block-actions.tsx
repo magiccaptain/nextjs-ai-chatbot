@@ -1,10 +1,3 @@
-import { cn, generateUUID } from '@/lib/utils';
-import { ClockRewind, CopyIcon, PlayIcon, RedoIcon, UndoIcon } from './icons';
-import { Button } from './ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
-import { useCopyToClipboard } from 'usehooks-ts';
-import { toast } from 'sonner';
-import { ConsoleOutput, UIBlock } from './block';
 import {
   Dispatch,
   memo,
@@ -13,6 +6,14 @@ import {
   useCallback,
   useState,
 } from 'react';
+import { toast } from 'sonner';
+import { useCopyToClipboard } from 'usehooks-ts';
+
+import { ConsoleOutput, UIBlock } from './block';
+import { ClockRewind, CopyIcon, PlayIcon, RedoIcon, UndoIcon } from './icons';
+import { Button } from './ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
+import { cn, generateUUID } from '@/lib/utils';
 
 interface BlockActionsProps {
   block: UIBlock;
@@ -51,7 +52,7 @@ export function RunCodeButton({
         return updatedOutputs;
       });
     },
-    [setConsoleOutputs],
+    [setConsoleOutputs]
   );
 
   const loadAndRunPython = useCallback(async () => {
@@ -89,7 +90,7 @@ export function RunCodeButton({
         await currentPyodideInstance.runPythonAsync(codeContent);
 
         const output: string = await currentPyodideInstance.runPythonAsync(
-          `sys.stdout.getvalue()`,
+          `sys.stdout.getvalue()`
         );
 
         updateConsoleOutput(runId, output, 'completed');
@@ -140,7 +141,7 @@ function PureBlockActions({
                 'p-2 h-fit !pointer-events-auto dark:hover:bg-zinc-700',
                 {
                   'bg-muted': mode === 'diff',
-                },
+                }
               )}
               onClick={() => {
                 handleVersionChange('toggle');

@@ -1,14 +1,6 @@
 'use client';
 
 import { ReactNode, useMemo, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
 
 import {
   CheckCircleFillIcon,
@@ -16,7 +8,15 @@ import {
   GlobeIcon,
   LockIcon,
 } from './icons';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { useChatVisibility } from '@/hooks/use-chat-visibility';
+import { cn } from '@/lib/utils';
 
 export type VisibilityType = 'private' | 'public';
 
@@ -57,7 +57,7 @@ export function VisibilitySelector({
 
   const selectedVisibility = useMemo(
     () => visibilities.find((visibility) => visibility.id === visibilityType),
-    [visibilityType],
+    [visibilityType]
   );
 
   return (
@@ -66,7 +66,7 @@ export function VisibilitySelector({
         asChild
         className={cn(
           'w-fit data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
-          className,
+          className
         )}
       >
         <Button

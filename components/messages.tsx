@@ -1,10 +1,11 @@
 import { ChatRequestOptions, Message } from 'ai';
-import { PreviewMessage, ThinkingMessage } from './message';
-import { useScrollToBottom } from './use-scroll-to-bottom';
-import { Overview } from './overview';
-import { memo } from 'react';
-import { Vote } from '@/lib/db/schema';
 import equal from 'fast-deep-equal';
+import { memo } from 'react';
+
+import { PreviewMessage, ThinkingMessage } from './message';
+import { Overview } from './overview';
+import { useScrollToBottom } from './use-scroll-to-bottom';
+import { Vote } from '@/lib/db/schema';
 
 interface MessagesProps {
   chatId: string;
@@ -12,10 +13,10 @@ interface MessagesProps {
   votes: Array<Vote> | undefined;
   messages: Array<Message>;
   setMessages: (
-    messages: Message[] | ((messages: Message[]) => Message[]),
+    messages: Message[] | ((messages: Message[]) => Message[])
   ) => void;
   reload: (
-    chatRequestOptions?: ChatRequestOptions,
+    chatRequestOptions?: ChatRequestOptions
   ) => Promise<string | null | undefined>;
   isReadonly: boolean;
   isBlockVisible: boolean;

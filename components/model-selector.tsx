@@ -2,6 +2,7 @@
 
 import { startTransition, useMemo, useOptimistic, useState } from 'react';
 
+import { CheckCircleFillIcon, ChevronDownIcon } from './icons';
 import { saveModelId } from '@/app/(chat)/actions';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,8 +13,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { models } from '@/lib/ai/models';
 import { cn } from '@/lib/utils';
-
-import { CheckCircleFillIcon, ChevronDownIcon } from './icons';
 
 export function ModelSelector({
   selectedModelId,
@@ -27,7 +26,7 @@ export function ModelSelector({
 
   const selectedModel = useMemo(
     () => models.find((model) => model.id === optimisticModelId),
-    [optimisticModelId],
+    [optimisticModelId]
   );
 
   return (
@@ -36,7 +35,7 @@ export function ModelSelector({
         asChild
         className={cn(
           'w-fit data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
-          className,
+          className
         )}
       >
         <Button variant="outline" className="md:px-2 md:h-[34px]">
